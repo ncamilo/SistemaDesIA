@@ -1,6 +1,8 @@
+from typing import TypedDict
+
 from app.models import Project, Task
 from app.repositories import Repository
-from app.schemas import ProjectRead, Status
+from app.schemas import ProjectCreate, ProjectRead, ProjectUpdate, Status, TaskCreate, TaskUpdate
 
 
 class NotFound(Exception):
@@ -11,7 +13,14 @@ class Conflict(Exception):
     pass
 
 
-def summarize(statuses: list[str]) -> dict:
+class ProgressSummary(TypedDict):
+    status: Status
+    total_tasks: int
+    completed_tasks: int
+    progress: int
+
+
+def summarize(statuses: list[str]) -> ProgressSummary:
     total = len(statuses)
     completed = statuses.count(Status.done)
     status = Status.pending
@@ -27,7 +36,7 @@ def summarize(statuses: list[str]) -> dict:
     }
 
 
-def project_view(project: Project):
+def project_view(project: Project) -> ProjectRead:
     return ProjectRead(
         id=project.id,
         title=project.title,
@@ -40,45 +49,45 @@ def project_view(project: Project):
 
 
 class Service:
-    def __init__(self, repository: Repository):
+    def __init__(self, repository: Repository) -> None:
         self.repo = repository
 
-    def project(self, project_id):
+    def project(self, project_id: int) -> Project:
         project = self.repo.project(project_id)
         if project is None:
             raise NotFound("Projeto não encontrado.")
         return project
 
-    def task(self, task_id):
+    def task(self, task_id: int) -> Task:
         task = self.repo.task(task_id)
         if task is None:
             raise NotFound("Tarefa não encontrada.")
         return task
 
-    def create_project(self, data):
+    def create_project(self, data: ProjectCreate) -> Project:
         return self.repo.save(Project(**data.model_dump()))
 
-    def update_project(self, project_id, data):
+    def update_project(self, project_id: int, data: ProjectUpdate) -> Project:
         project = self.project(project_id)
         for key, value in data.model_dump(exclude_unset=True).items():
             setattr(project, key, value)
         return self.repo.save(project)
 
-    def delete_project(self, project_id):
+    def delete_project(self, project_id: int) -> None:
         project = self.project(project_id)
         if project.tasks:
             raise Conflict("Remova as tarefas antes de excluir o projeto.")
         self.repo.delete(project)
 
-    def create_task(self, project_id, data):
+    def create_task(self, project_id: int, data: TaskCreate) -> Task:
         self.project(project_id)
         return self.repo.save(Task(project_id=project_id, **data.model_dump()))
 
-    def update_task(self, task_id, data):
+    def update_task(self, task_id: int, data: TaskUpdate) -> Task:
         task = self.task(task_id)
         for key, value in data.model_dump(exclude_unset=True).items():
             setattr(task, key, value)
         return self.repo.save(task)
 
-    def delete_task(self, task_id):
+    def delete_task(self, task_id: int) -> None:
         self.repo.delete(self.task(task_id))

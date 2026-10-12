@@ -65,6 +65,7 @@ não representam uma auditoria completa de acessibilidade.
 - Estoque, compras, orçamento, faturamento e emissão fiscal.
 - Anexos, integração com equipamentos e execução automática de montagens.
 - IA integrada à aplicação em tempo de execução; a IA auxilia o desenvolvimento.
+- Priorização assistida: adiada por decisão do aluno para manter o MVP sem custos de serviços de IA.
 - Hospedagem pública, alta disponibilidade, backup automático e metas de desempenho.
 - Paginação e migrações de banco, previstas somente para evolução posterior.
 

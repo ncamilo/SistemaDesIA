@@ -69,13 +69,16 @@ PATCH altera somente os campos enviados; campos nulos, desconhecidos e corpo vaz
 
 ## Testes e qualidade
 
+Healthcheck: `GET /health` retorna `200` com `{"status":"ok"}` e indica que o processo
+está respondendo, sem testar o banco. Veja o [contrato HTTP e avaliação das diretrizes](docs/contrato-http.md).
+
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\ruff.exe check app tests
 .\.venv\Scripts\ruff.exe format --check app tests
 ```
 
-A suíte contém 40 casos, cobrindo cálculo do progresso, CRUD, validação, isolamento entre projetos,
+A suíte unitária/API contém 44 casos, cobrindo healthcheck, falha do banco na inicialização, contrato HTTP, cálculo do progresso, CRUD, validação, isolamento entre projetos,
 filtros, reabertura, exclusão protegida e persistência após recriar a aplicação.
 Cada teste de API usa seu próprio banco temporário. Os testes não alteram o banco de uso.
 GitHub Actions executa os mesmos comandos em pushes e pull requests.

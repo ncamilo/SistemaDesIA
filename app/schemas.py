@@ -1,6 +1,6 @@
 from datetime import datetime
 from enum import StrEnum
-from typing import Annotated
+from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, StringConstraints, model_validator
 
@@ -29,7 +29,7 @@ class ProjectCreate(InputModel):
 class PatchModel(InputModel):
     @model_validator(mode="before")
     @classmethod
-    def reject_nulls_and_empty(cls, value):
+    def reject_nulls_and_empty(cls, value: object) -> object:
         if isinstance(value, dict) and (not value or any(v is None for v in value.values())):
             raise ValueError("Informe pelo menos um campo, sem valores nulos.")
         return value
@@ -71,3 +71,11 @@ class TaskRead(BaseModel):
     description: str
     status: Status
     created_at: datetime
+
+
+class HealthRead(BaseModel):
+    status: Literal["ok"]
+
+
+class ErrorResponse(BaseModel):
+    detail: str
