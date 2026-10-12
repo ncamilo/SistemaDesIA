@@ -1,7 +1,8 @@
 # Conferência de entrega — v1.0.1
 
 Data: 12/10/2026. Referência: 12 capturas da apostila fornecida, em especial
-a seção 2.3.4 (capturas 104750 e 104802), e as imagens posteriores de qualidade/testabilidade.
+a seção 2.3.4 (capturas 104750 e 104802), as imagens posteriores de qualidade/testabilidade
+e as oito capturas da Unidade V fornecidas em Entrega do Sistema.zip.
 O aluno confirmou que esse material contém todas as exigências aplicáveis.
 
 ## Matriz de atendimento
@@ -29,7 +30,7 @@ consideradas as confirmações do aluno. Não foi identificada funcionalidade ob
 pendente. Resta a submissão pelo canal do curso; avaliação e nota são decisões dos professores.
 
 Core, qualidade e release são etapas rastreáveis, não três tags exigidas pelo material.
-As tags publicadas são `v0.1.0` e `v1.0.1`. Não foram criadas marcações retroativas
+O histórico de versões inclui `v0.1.0`, `v1.0.0` e a entrega `v1.0.1`. Não foram criadas marcações retroativas
 para simular etapas de desenvolvimento.
 
 ## Links para avaliação
