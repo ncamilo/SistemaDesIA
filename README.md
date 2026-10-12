@@ -159,7 +159,7 @@ está respondendo, sem testar o banco. Veja o [contrato HTTP e avaliação das d
 .\.venv\Scripts\ruff.exe format --check app tests
 ```
 
-A suíte unitária/API contém 46 casos, cobrindo healthcheck, falha do banco na inicialização, contrato HTTP, cálculo do progresso, CRUD, validação, isolamento entre projetos,
+A suíte unitária/API contém 48 casos, cobrindo healthcheck, falha do banco na inicialização, contrato HTTP, cálculo do progresso, CRUD, validação, isolamento entre projetos,
 filtros, reabertura, exclusão protegida e persistência após recriar a aplicação.
 Cada teste de API usa seu próprio banco temporário. Os testes não alteram o banco de uso.
 GitHub Actions executa os mesmos comandos em pushes e pull requests.

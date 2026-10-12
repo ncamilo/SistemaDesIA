@@ -23,7 +23,7 @@ desta versão, por decisão do aluno de evitar custos de serviços de IA.
 
 - [x] Arquitetura em rotas, schemas, serviços e repositório.
 - [x] Tipagem explícita de funções públicas, lint e formatação com Ruff.
-- [x] 46 testes unitários/API e seis testes de navegador.
+- [x] 48 testes unitários/API e de automação e seis testes de navegador.
 - [x] Contrato HTTP, erros documentados e OpenAPI/Swagger UI.
 - [x] Healthcheck independente do banco, inclusive com falha de acesso no startup.
 - [x] CI com testes de API e navegador; correção do achado de revisão do PR #4.

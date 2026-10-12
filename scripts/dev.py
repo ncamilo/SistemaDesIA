@@ -35,6 +35,8 @@ def main() -> None:
             "Use Python 3.11. Se a .venv foi criada com outra versão, "
             "renomeie-a e execute install novamente. Veja a migração no README."
         )
+    if (ROOT / ".venv").exists() and not PYTHON.is_file():
+        parser.error("A .venv está incompleta. Renomeie-a e execute install novamente.")
     if PYTHON.exists():
         version = subprocess.check_output(
             [
