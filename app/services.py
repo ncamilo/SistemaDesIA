@@ -1,3 +1,4 @@
+from collections.abc import Sequence
 from typing import TypedDict
 
 from app.models import Project, Task
@@ -51,6 +52,13 @@ def project_view(project: Project) -> ProjectRead:
 class Service:
     def __init__(self, repository: Repository) -> None:
         self.repo = repository
+
+    def list_projects(self) -> Sequence[Project]:
+        return self.repo.projects()
+
+    def list_tasks(self, project_id: int, status: Status | None = None) -> Sequence[Task]:
+        self.project(project_id)
+        return self.repo.tasks(project_id, status)
 
     def project(self, project_id: int) -> Project:
         project = self.repo.project(project_id)

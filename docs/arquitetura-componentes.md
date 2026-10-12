@@ -3,7 +3,7 @@
 ## Objetivo e contexto
 
 Representar a arquitetura implementada no MVP de gerenciamento de projetos e tarefas
-de montagem, versão funcional `v1.0.0`. A aplicação é um monólito modular executado
+de montagem, versão funcional `v1.0.1`. A aplicação é um monólito modular executado
 localmente: o FastAPI serve a interface, expõe a API e utiliza SQLite para persistência.
 
 ## Diagrama Mermaid
@@ -49,7 +49,6 @@ flowchart TB
     API -.->|"Valida entrada e serializa saída"| SCHEMAS
     API -.->|"Injeta sessão por requisição"| DATABASE
     API --> SERVICE
-    API -->|"Listagens via service.repo"| REPO
     SERVICE --> REPO
     SERVICE -.-> MODELS
     REPO -.-> MODELS
@@ -86,8 +85,8 @@ gerado automaticamente pelo FastAPI.
 6. A interface consulta novamente os projetos e as tarefas. O backend calcula o
    progresso e o status do projeto a partir das tarefas, sem duplicar esse estado no banco.
 
-Nas listagens, as rotas também acessam o repositório por `service.repo`, conforme
-a implementação atual. O diagrama não presume uma separação mais estrita do que existe.
+As listagens também passam pelos métodos do serviço. O fluxo de dados segue
+Controller → Service → Repository → SQLite.
 
 ## Inicialização, falhas e limites
 
@@ -95,6 +94,9 @@ a implementação atual. O diagrama não presume uma separação mais estrita do
   continua acessível e as operações `/api/*` retornam 503.
 - Nesse cenário, é necessário corrigir o acesso ao banco e reiniciar o servidor;
   não há recuperação automática nem verificação contínua de readiness.
+- Falhas SQLAlchemy durante uma operação retornam 503 com mensagem JSON genérica,
+  sem expor consultas ou dados. A sessão é encerrada e a transação pendente é
+  revertida; uma nova requisição pode funcionar quando a causa transitória cessar.
 - Os testes de API e navegador usam bancos temporários separados dos cadastros reais.
 - Não há autenticação, microsserviços, mensageria ou serviços externos de IA.
 - Priorização assistida está prevista no backlog como evolução futura; não existe

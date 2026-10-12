@@ -36,8 +36,14 @@ def create_app(database_url: str | None = None) -> FastAPI:
         finally:
             engine.dispose()
 
-    app = FastAPI(title="Montagem · Projetos e tarefas", version="1.0.0", lifespan=lifespan)
+    app = FastAPI(title="Montagem · Projetos e tarefas", version="1.0.1", lifespan=lifespan)
     app.state.session_factory = session_factory
+
+    @app.exception_handler(SQLAlchemyError)
+    async def database_error(_request: Request, _error: SQLAlchemyError) -> JSONResponse:
+        # Do not expose SQL, parameters or customer data in responses/logs.
+        logging.getLogger(__name__).error("Falha ao acessar o banco durante uma operação.")
+        return JSONResponse(status_code=503, content={"detail": "Banco de dados indisponível."})
 
     @app.exception_handler(NotFound)
     async def not_found(_request: Request, error: NotFound) -> JSONResponse:

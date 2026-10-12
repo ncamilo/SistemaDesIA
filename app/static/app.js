@@ -20,11 +20,11 @@ async function api(path, method = "GET", data) {
     body: data === undefined ? undefined : JSON.stringify(data),
   });
   if (!response.ok) {
-    const body = await response.json();
-    const detail = body.detail;
+    const body = await response.json().catch(() => null);
+    const detail = body?.detail;
     throw new Error(Array.isArray(detail)
       ? "Verifique os campos: título e cliente não podem estar vazios; respeite os limites de tamanho."
-      : detail || "Não foi possível concluir a operação.");
+      : typeof detail === "string" ? detail : "Não foi possível concluir a operação. Tente novamente.");
   }
   return response.status === 204 ? null : response.json();
 }

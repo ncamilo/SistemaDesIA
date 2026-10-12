@@ -1,9 +1,36 @@
 from unittest.mock import patch
 
 from fastapi.testclient import TestClient
+from sqlalchemy.exc import OperationalError
 
 from app.main import create_app
+from app.repositories import Repository
 from app.schemas import ErrorResponse
+
+
+def test_runtime_database_failure_is_safe_and_next_request_recovers(client):
+    with patch.object(
+        Repository,
+        "projects",
+        side_effect=OperationalError("SELECT segredo", {}, Exception("cliente privado")),
+    ):
+        response = client.get("/api/projects")
+    assert response.status_code == 503
+    assert response.json() == {"detail": "Banco de dados indisponível."}
+    assert client.get("/health").status_code == 200
+    assert client.get("/api/projects").json() == []
+
+
+def test_failed_commit_does_not_persist_project(client):
+    from sqlalchemy.orm import Session
+
+    with patch.object(Session, "commit", side_effect=OperationalError("INSERT", {}, Exception())):
+        response = client.post("/api/projects", json={"title": "Teste", "customer": "Fictício"})
+    assert response.status_code == 503
+    assert client.get("/api/projects").json() == []
+    assert (
+        client.post("/api/projects", json={"title": "Novo", "customer": "Teste"}).status_code == 201
+    )
 
 
 def test_database_failure_at_startup_does_not_block_liveness(tmp_path):

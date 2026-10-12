@@ -32,7 +32,7 @@ ServiceDep = Annotated[Service, Depends(get_service)]
 
 @router.get("/projects", response_model=list[ProjectRead])
 def list_projects(service: ServiceDep) -> list[ProjectRead]:
-    return [project_view(p) for p in service.repo.projects()]
+    return [project_view(p) for p in service.list_projects()]
 
 
 @router.post("/projects", response_model=ProjectRead, status_code=201)
@@ -72,8 +72,7 @@ def delete_project(project_id: int, service: ServiceDep) -> Response:
 def list_tasks(
     project_id: int, service: ServiceDep, status: Status | None = None
 ) -> Sequence[Task]:
-    service.project(project_id)
-    return service.repo.tasks(project_id, status)
+    return service.list_tasks(project_id, status)
 
 
 @router.post(
