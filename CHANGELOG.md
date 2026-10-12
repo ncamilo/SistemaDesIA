@@ -1,5 +1,15 @@
 # Histórico de versões
 
+## v1.0.2 — 12/10/2026
+
+- Adota Python 3.11 nos scripts, CI, lint e documentação.
+- Substitui a sintaxe genérica de Python 3.12+ por TypeVar compatível com 3.11.
+- Scripts recusam ambiente virtual de outra versão; README orienta a recriação segura.
+- Dependências fixadas mantidas após instalação e validação em Python 3.11.
+- SQLite, esquema, cadastros e funcionalidades preservados.
+- Validação: 46 testes unitários/API e seis de navegador; CI em Windows, macOS e Linux.
+
+
 ## v1.0.1 — 12/10/2026
 
 - Listagens passam pelo serviço antes do repositório.

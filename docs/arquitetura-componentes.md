@@ -3,7 +3,7 @@
 ## Objetivo e contexto
 
 Representar a arquitetura implementada no MVP de gerenciamento de projetos e tarefas
-de montagem, versão funcional `v1.0.1`. A aplicação é um monólito modular executado
+de montagem, versão funcional `v1.0.2`. A aplicação é um monólito modular executado
 localmente: o FastAPI serve a interface, expõe a API e utiliza SQLite para persistência.
 
 ## Diagrama Mermaid

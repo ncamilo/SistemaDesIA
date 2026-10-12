@@ -30,8 +30,22 @@ def main() -> None:
         ],
     )
     command = parser.parse_args().command
-    if sys.version_info[:2] != (3, 14):
-        parser.error("Use Python 3.14, conforme o ambiente validado do projeto.")
+    if sys.version_info[:2] != (3, 11):
+        parser.error(
+            "Use Python 3.11. Se a .venv foi criada com outra versão, "
+            "renomeie-a e execute install novamente. Veja a migração no README."
+        )
+    if PYTHON.exists():
+        version = subprocess.check_output(
+            [
+                str(PYTHON),
+                "-c",
+                "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')",
+            ],
+            text=True,
+        ).strip()
+        if version != "3.11":
+            parser.error("A .venv não usa Python 3.11. Renomeie-a e execute install novamente.")
     if command == "install":
         if not PYTHON.exists():
             subprocess.run([sys.executable, "-m", "venv", str(ROOT / ".venv")], check=True)

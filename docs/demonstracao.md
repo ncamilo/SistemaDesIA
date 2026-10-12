@@ -33,18 +33,18 @@ demonstração anterior, use outro nome de projeto ou exclua tarefas/projeto pel
 6. **IA e revisão humana (1 min):** explicar o Modo 1, mostrar os prompts e a
    revisão do tratamento de erros. Modo 2 e fallback são futuros. Não atribuir
    ganhos numéricos de produtividade sem medição.
-7. **Encerramento (30 s):** mostrar README, limitações, licença e release v1.0.1.
+7. **Encerramento (30 s):** mostrar README, limitações, licença e release v1.0.2.
 
 ## Material a submeter
 
 - Repositório: https://github.com/ncamilo/SistemaDesIA
-- Versão final: https://github.com/ncamilo/SistemaDesIA/releases/tag/v1.0.1
-- Código e documentação do snapshot: https://github.com/ncamilo/SistemaDesIA/tree/v1.0.1
+- Versão final: https://github.com/ncamilo/SistemaDesIA/releases/tag/v1.0.2
+- Código e documentação do snapshot: https://github.com/ncamilo/SistemaDesIA/tree/v1.0.2
 - Testes e histórico: abas Actions e Pull requests do repositório.
 
 Texto sugerido: “Entrega do MVP de gerenciamento de projetos e tarefas de montagem,
 desenvolvido em Python/FastAPI com SQLite e IA como copiloto de desenvolvimento.
-A release v1.0.1 reúne código, instruções de instalação, testes, arquitetura,
+A release v1.0.2 reúne código, instruções de instalação, testes, arquitetura,
 registro de prompts e roteiro de demonstração. Uso local, sem autenticação e sem
 serviços pagos de IA em execução.”
 
