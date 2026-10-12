@@ -5,6 +5,12 @@ exceto respostas 204, que não possuem corpo. Não há autenticação neste MVP 
 O contrato executável e atualizado é [OpenAPI](http://127.0.0.1:8000/openapi.json),
 com interface [Swagger UI](http://127.0.0.1:8000/docs).
 
+Todas as operações `/api/*` podem retornar 503 com `{"detail":"Banco de dados indisponível."}`
+quando a criação do esquema falha durante a inicialização. Nesse modo, `/health`,
+`/docs` e a interface continuam acessíveis. Corrija o acesso ao arquivo SQLite e
+reinicie o servidor para tentar inicializar novamente. Não há recuperação automática
+nem monitoramento contínuo do banco; esse 503 cobre a falha detectada no startup.
+
 ## Operações
 
 | Método | Rota | Sucesso | Erros previstos |
@@ -90,3 +96,8 @@ com localização (`loc`), mensagem (`msg`) e tipo (`type`). O esquema correspon
 Não foi realizada medição percentual de cobertura. A aplicação não pode ser considerada
 integralmente aderente à segunda imagem enquanto a aplicabilidade da priorização
 assistida não for resolvida. Não há endpoint fictício para representar essa funcionalidade.
+
+Decisão do aluno: manter a priorização assistida como evolução futura para evitar
+custos de serviços de IA no MVP. Não há integração, chave de API ou chamada paga.
+A separação em serviços permite adicionar um adaptador no futuro; esse adaptador
+e seu contrato ainda não foram implementados. A restrição acadêmica acima permanece.

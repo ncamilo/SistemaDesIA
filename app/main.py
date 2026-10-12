@@ -1,3 +1,4 @@
+import logging
 import os
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
@@ -6,6 +7,7 @@ from pathlib import Path
 from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from sqlalchemy.exc import SQLAlchemyError
 
 from app.api import router
 from app.database import Base, build_database
@@ -21,9 +23,18 @@ def create_app(database_url: str | None = None) -> FastAPI:
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
-        Base.metadata.create_all(engine)
-        yield
-        engine.dispose()
+        app.state.database_ready = False
+        try:
+            Base.metadata.create_all(engine)
+            app.state.database_ready = True
+        except SQLAlchemyError:
+            logging.getLogger(__name__).error(
+                "Banco indisponível na inicialização. Corrija a configuração e reinicie o servidor."
+            )
+        try:
+            yield
+        finally:
+            engine.dispose()
 
     app = FastAPI(title="Montagem · Projetos e tarefas", version="0.1.0", lifespan=lifespan)
     app.state.session_factory = session_factory

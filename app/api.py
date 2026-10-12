@@ -1,7 +1,7 @@
 from collections.abc import Iterator, Sequence
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Request, Response
+from fastapi import APIRouter, Depends, HTTPException, Request, Response
 
 from app.models import Task
 from app.repositories import Repository
@@ -17,10 +17,12 @@ from app.schemas import (
 )
 from app.services import Service, project_view
 
-router = APIRouter(prefix="/api")
+router = APIRouter(prefix="/api", responses={503: {"model": ErrorResponse}})
 
 
 def get_service(request: Request) -> Iterator[Service]:
+    if not request.app.state.database_ready:
+        raise HTTPException(status_code=503, detail="Banco de dados indisponível.")
     with request.app.state.session_factory() as session:
         yield Service(Repository(session))
 
