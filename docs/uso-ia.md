@@ -28,6 +28,10 @@ A aplicação não chama modelos de IA nem exige chaves de API.
 
 Histórico Git, suíte em `tests/`, workflow de CI e requisitos em `docs/requisitos.md`.
 Na primeira execução local, os 40 testes passaram. O Ruff foi executado após a formatação.
+O fluxo web foi exercitado em Edge headless com criação de projeto e três tarefas, mudança
+de status, cálculo de 33% de progresso, filtro, bloqueio de exclusão e remoção final dos dados fictícios.
+Foram inspecionadas capturas em 1440 px e 390 px, sem transbordamento horizontal ou erros JavaScript.
+As capturas em `docs/images/` mostram somente os dados fictícios desse teste.
 O material fornecido não exige percentual mínimo de cobertura; não foi atribuída uma meta fictícia.
 
 O aluno ainda deve revisar a aplicação e validar seu atendimento ao contexto de montagem

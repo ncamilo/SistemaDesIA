@@ -16,6 +16,8 @@ Projeto sem tarefas fica pendente com 0%. Todas as tarefas concluídas resultam 
 Reabrir uma tarefa ou adicionar uma etapa pendente recalcula o progresso.
 Projetos com tarefas não podem ser excluídos antes da remoção das tarefas.
 
+![Interface com dados fictícios de demonstração](docs/images/desktop.png)
+
 ## Executar no Windows (PowerShell)
 
 Pré-requisitos: Python 3.14 e Git. Execute a partir da raiz do projeto.
