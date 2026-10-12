@@ -7,7 +7,7 @@
 - Scripts recusam ambiente virtual de outra versão; README orienta a recriação segura.
 - Dependências fixadas mantidas após instalação e validação em Python 3.11.
 - SQLite, esquema, cadastros e funcionalidades preservados.
-- Validação: 46 testes unitários/API e seis de navegador; CI em Windows, macOS e Linux.
+- Validação: 48 testes unitários/API e de automação e seis de navegador; CI em Windows, macOS e Linux.
 
 
 ## v1.0.1 — 12/10/2026
