@@ -9,7 +9,7 @@ O aluno confirmou que esse material contém todas as exigências aplicáveis.
 | Critério | Evidência | Resultado |
 | --- | --- | --- |
 | MVP pequeno e claro, pertinente ao aluno | `docs/escopo-mvp.md`, RF01–RF09 em `docs/requisitos.md` | Atendido |
-| Arquitetura mínima, módulos e fluxo de dados | Diagrama Mermaid e descrição em `docs/requisitos.md`; rotas, schemas, serviços e repositório | Atendido |
+| Arquitetura mínima, módulos e fluxo de dados | `docs/arquitetura-componentes.md`, diagrama Mermaid, responsabilidades e fluxo; PR #7 integrado | Atendido |
 | Dependências e reprodução | Python 3.14, `requirements.txt`, `requirements-browser.txt`, comandos no README; CI instala ambiente limpo | Atendido |
 | Git, .gitignore e histórico incremental | Commits de planejamento, funcionalidades, testes, correções e release; PRs #1–#5 integrados | Atendido |
 | Repositório público | https://github.com/ncamilo/SistemaDesIA | Atendido |
@@ -20,6 +20,7 @@ O aluno confirmou que esse material contém todas as exigências aplicáveis.
 | Priorização assistida | Documentada no backlog como evolução futura; dispensa de implementação confirmada pelo aluno | Atendido como planejamento futuro |
 | Release/tag | v1.0.0 publicada, notas de release e CHANGELOG | Atendido |
 | Aceite final e persistência ao reiniciar | Confirmação explícita do aluno em 12/10/2026; teste de persistência já existente | Confirmado |
+| Registro dos prompts | `docs/prompts-utilizados.md`, revisado pelo aluno no formato da apostila; referências no README e no registro de uso de IA | Documentado |
 
 ## Resultado
 
@@ -41,3 +42,15 @@ para simular etapas de desenvolvimento.
 
 Este registro de aceite é posterior à publicação da release. Não altera o código
 da v1.0.0, sua tag, o banco local ou as notas históricas da versão.
+
+## Documentação complementar da entrega
+
+A branch `main` reúne a documentação complementar de arquitetura e prompts,
+posterior à release funcional `v1.0.0`. Para avaliação, usar o repositório na
+`main` junto ao link da release; o ZIP da tag original não inclui esses documentos
+adicionados posteriormente. A redação dos prompts foi preservada conforme a
+revisão do aluno.
+
+Na última verificação local, os 44 testes unitários/API e os quatro testes de
+navegador passaram; lint e formatação também passaram. O aviso de depreciação
+do TestClient permanece registrado como melhoria futura.

@@ -7,6 +7,10 @@ A aplicação não chama modelos de IA nem exige chaves de API.
 
 ## Etapas
 
+As solicitações e decisões do aluno estão organizadas em
+[prompts do projeto](prompts-utilizados.md), com redação adaptada ao modelo da
+apostila: Contexto, Objetivo, Estilo e Resposta.
+
 1. Leitura das capturas da apostila: identificação dos quatro projetos e dos critérios de entrega.
 2. Comparação de opções: recomendação inicial de RAG, seguida pela escolha do aluno de adaptar
    a API de tarefas para projetos de montagem de clientes.
