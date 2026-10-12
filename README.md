@@ -115,6 +115,8 @@ Veja [escopo do MVP](docs/escopo-mvp.md), [requisitos e arquitetura](docs/requis
 
 Conferência final e aceite do aluno: [matriz de atendimento da apostila](docs/conferencia-entrega.md).
 
+Registro da interação com a IA: [prompts utilizados no chat](docs/prompts-utilizados.md).
+
 Tecnologias: Python 3.14, FastAPI, Pydantic, SQLAlchemy, SQLite, Uvicorn, pytest, HTTPX e Ruff.
 As versões resolvidas, incluindo dependências transitivas, estão em `requirements.txt`.
 
