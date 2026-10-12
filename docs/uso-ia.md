@@ -34,5 +34,6 @@ Foram inspecionadas capturas em 1440 px e 390 px, sem transbordamento horizontal
 As capturas em `docs/images/` mostram somente os dados fictícios desse teste.
 O material fornecido não exige percentual mínimo de cobertura; não foi atribuída uma meta fictícia.
 
-O aluno ainda deve revisar a aplicação e validar seu atendimento ao contexto de montagem
-antes da entrega acadêmica final. O uso de IA não substitui essa revisão.
+Em 12/10/2026, o aluno confirmou o aceite final e a persistência após reiniciar o servidor.
+Esse registro é a declaração do aluno, complementada pelos testes automatizados existentes;
+não equivale à aprovação ou nota atribuída pelos professores.

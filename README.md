@@ -113,6 +113,8 @@ a suíte continua funcional. Uma atualização futura do adaptador de testes pod
 Veja [escopo do MVP](docs/escopo-mvp.md), [requisitos e arquitetura](docs/requisitos.md), [análise da apostila](docs/analise-apostila.md),
 [fluxo de contribuição](CONTRIBUTING.md) e [uso da IA](docs/uso-ia.md).
 
+Conferência final e aceite do aluno: [matriz de atendimento da apostila](docs/conferencia-entrega.md).
+
 Tecnologias: Python 3.14, FastAPI, Pydantic, SQLAlchemy, SQLite, Uvicorn, pytest, HTTPX e Ruff.
 As versões resolvidas, incluindo dependências transitivas, estão em `requirements.txt`.
 

@@ -90,14 +90,14 @@ com localização (`loc`), mensagem (`msg`) e tipo (`type`). O esquema correspon
 | Healthcheck | Teste de resposta 200, corpo exato, Content-Type e independência da sessão do banco. |
 | CRUD básico | Criação, consulta, edição e exclusão de projetos/tarefas; inclui bloqueio de exclusão e recursos inexistentes. |
 | Validações de payload | Testes para campos ausentes, vazios, nulos, desconhecidos, limites de tamanho e status inválidos. |
-| Resposta de priorização assistida | **Não implementada nem testada.** Não integra o escopo aprovado; confirmar obrigatoriedade no curso antes de definir contrato, regras e critérios de aceitação. |
+| Resposta de priorização assistida | **Melhoria futura; não implementada nem testada.** O aluno confirmou em 12/10/2026 que a implementação é dispensada quando prevista como evolução futura. |
 
 “Cobertura mínima” na imagem descreve fluxos a testar, sem definir percentual.
-Não foi realizada medição percentual de cobertura. A aplicação não pode ser considerada
-integralmente aderente à segunda imagem enquanto a aplicabilidade da priorização
-assistida não for resolvida. Não há endpoint fictício para representar essa funcionalidade.
+Não foi realizada medição percentual de cobertura. O item de priorização assistida
+é tratado como melhoria futura conforme confirmação do aluno, sem ser contabilizado
+como funcionalidade implementada. Não há endpoint fictício para representá-lo.
 
 Decisão do aluno: manter a priorização assistida como evolução futura para evitar
 custos de serviços de IA no MVP. Não há integração, chave de API ou chamada paga.
 A separação em serviços permite adicionar um adaptador no futuro; esse adaptador
-e seu contrato ainda não foram implementados. A restrição acadêmica acima permanece.
+e seu contrato ainda não foram implementados.

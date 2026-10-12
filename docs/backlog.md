@@ -47,15 +47,16 @@ integrado e notas de release com limitações explícitas.
 Artefatos: [notas de versão](../CHANGELOG.md) e
 [release v1.0.0](https://github.com/ncamilo/SistemaDesIA/releases/tag/v1.0.0).
 
-## Pendente — entrega acadêmica
+## Concluído — conferência de entrega
 
-- [ ] Aluno executar e registrar a aceitação final com um pedido representativo.
-- [ ] Confirmar com o curso se priorização assistida é obrigatória; se for, revisar
-  o escopo antes de declarar atendimento integral ao roteiro.
-- [ ] Conferir a rubrica completa e preparar os materiais de apresentação exigidos pelo curso.
+- [x] Aceite final confirmado pelo aluno em 12/10/2026.
+- [x] Persistência após reiniciar o servidor confirmada pelo aluno, além do teste automatizado.
+- [x] Aluno confirmou que a priorização assistida não é obrigatória se prevista como melhoria futura.
+- [x] Checklist da apostila fornecida reconferido; ver [conferência de entrega](conferencia-entrega.md).
 
-Essas pendências não bloqueiam a publicação técnica deste MVP; não devem ser
-apresentadas como requisitos acadêmicos já cumpridos.
+Não há pendências de implementação identificadas no material fornecido, consideradas
+as confirmações do aluno. Resta encaminhar os links de entrega pelo canal do curso.
+A avaliação e a nota cabem aos professores.
 
 ## Evoluções futuras — sem compromisso nesta release
 
