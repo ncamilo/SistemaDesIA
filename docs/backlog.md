@@ -53,6 +53,8 @@ Artefatos: [notas de versão](../CHANGELOG.md) e
 - [x] Persistência após reiniciar o servidor confirmada pelo aluno, além do teste automatizado.
 - [x] Aluno confirmou que a priorização assistida não é obrigatória se prevista como melhoria futura.
 - [x] Checklist da apostila fornecida reconferido; ver [conferência de entrega](conferencia-entrega.md).
+- [x] Arquitetura de componentes e diagrama Mermaid documentados; PR #7 integrado.
+- [x] Prompts organizados no formato da apostila e revisados pelo aluno; ver [registro](prompts-utilizados.md).
 
 Não há pendências de implementação identificadas no material fornecido, consideradas
 as confirmações do aluno. Resta encaminhar os links de entrega pelo canal do curso.
