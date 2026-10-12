@@ -123,8 +123,10 @@ Não inclui estoque, anexos, responsáveis, prazos, notificações, faturamento 
 Listagens ainda não têm paginação. O schema é criado na inicialização; mudanças futuras precisam de migrações.
 Não há integração de IA em tempo de execução. Não há implantação em serviço de hospedagem.
 
+Versão estável do MVP local: **v1.0.0**. Veja o [backlog](docs/backlog.md) e as
+[notas de versão](CHANGELOG.md). A publicação técnica não substitui a revisão
+de aceitação do aluno nem a conferência da rubrica acadêmica.
 Possíveis evoluções: autenticação, responsáveis e prazos, paginação e migrações com Alembic.
-A versão inicial é `v0.1.0`; a entrega acadêmica final deve ser revisada pelo aluno antes de marcar `v1.0.0`.
 
 ## Créditos e licença
 
