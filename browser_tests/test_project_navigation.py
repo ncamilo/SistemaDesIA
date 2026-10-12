@@ -23,6 +23,7 @@ def test_click_selected_project_opens_its_details(page, live_url, width):
     heading = page.locator("#project-title")
     expect(heading).to_be_focused()
     expect(heading).to_be_in_viewport()
+    expect(page.locator(".status-help")).to_be_in_viewport()
     expect(page.locator(".task-title")).to_have_text("Conferir componentes")
 
 

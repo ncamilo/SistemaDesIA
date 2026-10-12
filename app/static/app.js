@@ -60,7 +60,7 @@ async function refresh() {
         const updated = await refresh();
         if (updated && selectedId === project.id) {
           $("project-title").focus({preventScroll: true});
-          $("project-title").scrollIntoView({block: "start"});
+          $("project-detail").scrollIntoView({block: "start"});
         }
       } catch (error) { errorMessage(error); }
     };
