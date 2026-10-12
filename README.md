@@ -20,12 +20,12 @@ Projetos com tarefas não podem ser excluídos antes da remoção das tarefas.
 
 ## Executar no Windows (PowerShell)
 
-Pré-requisitos: Python 3.14 e Git. Execute a partir da raiz do projeto.
+Pré-requisitos: Python 3.11 e Git. Execute a partir da raiz do projeto.
 
 ```powershell
 git clone https://github.com/ncamilo/SistemaDesIA.git
 cd SistemaDesIA
-python -m venv .venv
+py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 .\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
@@ -33,7 +33,7 @@ python -m venv .venv
 Abra http://127.0.0.1:8000 para a interface ou http://127.0.0.1:8000/docs para o Swagger UI.
 Para encerrar, pressione Ctrl+C no terminal. Não é necessário ativar o ambiente virtual.
 
-Linux/macOS: use `python3.14 -m venv .venv` e substitua `.venv\Scripts\python.exe`
+Linux/macOS: use `python3.11 -m venv .venv` e substitua `.venv\Scripts\python.exe`
 por `.venv/bin/python` nos comandos seguintes.
 
 O banco `montagem.db` é criado na pasta de execução e ignorado pelo Git.
@@ -43,9 +43,43 @@ Não apague esse arquivo para atualizar a aplicação. Para usar outro arquivo S
 $env:DATABASE_URL = 'sqlite:///./outro-banco.db'
 ```
 
+## Atualização para Python 3.11
+
+A partir da v1.0.2, o ambiente validado é Python **3.11**. As versões anteriores
+usavam 3.14. Instale Python 3.11 antes de migrar. Pare o servidor e feche terminais
+com o ambiente antigo ativado. Preserve `montagem.db` e `demo.db`.
+
+Se já houver uma `.venv` de outra versão, renomeie-a para uma pasta de backup
+local ignorada pelo Git, antes de recriar o ambiente:
+
+```powershell
+# Windows, na raiz do projeto; use um nome de backup ainda inexistente.
+New-Item -ItemType Directory -Force tmp | Out-Null
+Move-Item -LiteralPath .venv -Destination tmp/venv-anterior
+py -3.11 -m venv .venv
+powershell -ExecutionPolicy Bypass -File scripts/dev.ps1 install
+powershell -ExecutionPolicy Bypass -File scripts/dev.ps1 check
+powershell -ExecutionPolicy Bypass -File scripts/dev.ps1 test
+```
+
+```bash
+# macOS, na raiz do projeto; o teste evita substituir um backup existente.
+mkdir -p tmp
+test ! -e tmp/venv-anterior && mv .venv tmp/venv-anterior
+python3.11 -m venv .venv
+bash scripts/dev.sh install
+bash scripts/dev.sh check
+bash scripts/dev.sh test
+```
+
+O backup do ambiente serve para recuperação; ambientes virtuais não devem ser
+executados após movidos. Os scripts recusam interpretadores e ambientes de outra
+versão. Reinstale as dependências de navegador com `browser-install` se precisar
+executar `browser-test`. A migração não altera o esquema nem os cadastros SQLite.
+
 ## Automação no Windows e macOS
 
-Com Python 3.14 instalado, após clonar o projeto:
+Com Python 3.11 instalado, após clonar o projeto:
 
 ```powershell
 # Windows: a política vale apenas para este processo.
@@ -54,13 +88,13 @@ powershell -ExecutionPolicy Bypass -File scripts/dev.ps1 run
 ```
 
 ```bash
-# macOS: Python 3.14 disponível como python3.14.
+# macOS: Python 3.11 disponível como python3.11.
 bash scripts/dev.sh install
 bash scripts/dev.sh run
 ```
 
 Os scripts usam a `.venv` do projeto e funcionam a partir de qualquer pasta.
-No macOS, `PYTHON=/caminho/python3.14 bash scripts/dev.sh install` permite indicar
+No macOS, `PYTHON=/caminho/python3.11 bash scripts/dev.sh install` permite indicar
 o interpretador. SQLite permanece local, sem instalação de servidor de banco.
 
 | Comando | Resultado |
@@ -167,7 +201,7 @@ Conferência final e aceite do aluno: [matriz de atendimento da apostila](docs/c
 
 Registro da interação com a IA: [prompts utilizados no chat](docs/prompts-utilizados.md).
 
-Tecnologias: Python 3.14, FastAPI, Pydantic, SQLAlchemy, SQLite, Uvicorn, pytest, HTTPX e Ruff.
+Tecnologias: Python 3.11, FastAPI, Pydantic, SQLAlchemy, SQLite, Uvicorn, pytest, HTTPX e Ruff.
 As versões resolvidas, incluindo dependências transitivas, estão em `requirements.txt`.
 
 ## Limitações e próximos passos
@@ -181,7 +215,7 @@ não houver chave de API, permanece como evolução futura. Nenhum desses mecani
 de sugestão está implementado. Veja os [modos de uso da IA](docs/uso-ia.md).
 Não há implantação em serviço de hospedagem.
 
-Versão estável do MVP local: **v1.0.1**. Veja o [backlog](docs/backlog.md) e as
+Versão estável do MVP local: **v1.0.2**. Veja o [backlog](docs/backlog.md) e as
 [notas de versão](CHANGELOG.md). A publicação técnica não substitui a revisão
 de aceitação do aluno nem a conferência da rubrica acadêmica.
 Possíveis evoluções: autenticação, responsáveis e prazos, paginação e migrações com Alembic.
@@ -215,7 +249,7 @@ validações, persistência, arquitetura, testes e participação da IA em 5–7
 Usa dados fictícios em `demo.db`, sem alterar o banco de uso.
 
 Entregar o [repositório](https://github.com/ncamilo/SistemaDesIA) e a
-[release v1.0.1](https://github.com/ncamilo/SistemaDesIA/releases/tag/v1.0.1).
+[release v1.0.2](https://github.com/ncamilo/SistemaDesIA/releases/tag/v1.0.2).
 Seu snapshot reúne código e documentação finais. Para atualizar, preserve
 `montagem.db`, pare o servidor, atualize o código, execute `install` e reinicie.
 A versão não altera o esquema SQLite. Não inclui cadastros nem credenciais.

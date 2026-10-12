@@ -36,7 +36,7 @@ def create_app(database_url: str | None = None) -> FastAPI:
         finally:
             engine.dispose()
 
-    app = FastAPI(title="Montagem · Projetos e tarefas", version="1.0.1", lifespan=lifespan)
+    app = FastAPI(title="Montagem · Projetos e tarefas", version="1.0.2", lifespan=lifespan)
     app.state.session_factory = session_factory
 
     @app.exception_handler(SQLAlchemyError)
