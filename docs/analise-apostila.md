@@ -57,3 +57,10 @@ uma análise de todo o histórico do aluno.
 
 A recomendação depende de manter o RAG restrito a um documento e de dispor de tempo para avaliar
 recuperação e respostas. Se o prazo for curto, a API de tarefas é a opção mais segura em escopo.
+
+## Escolha do aluno
+
+Após a comparação, o aluno escolheu um gerenciador de projetos de montagem de clientes,
+com tarefas associadas e controle de execução. Essa escolha adapta a primeira sugestão
+da apostila e prioriza simplicidade e funcionamento rápido. O escopo vigente está em
+[requisitos.md](requisitos.md); a recomendação inicial acima permanece como registro da análise.

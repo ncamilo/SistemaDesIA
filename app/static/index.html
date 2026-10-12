@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Montagem · Projetos e tarefas</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/">m<span>·</span> montagem</a><span class="edition">PROJETOS & OPERAÇÕES</span><a href="/docs" target="_blank" rel="noopener">Documentação da API ↗</a></header>
+  <main>
+    <div class="heading"><div><p class="eyebrow">DA SOLICITAÇÃO À ENTREGA</p><h1>Organize cada montagem.</h1><p class="muted">Pedidos, tarefas e andamento em um só lugar.</p></div><button id="new-project">+ Novo projeto</button></div>
+    <div id="message" role="status" aria-live="polite" hidden></div>
+    <section class="metrics" aria-label="Resumo dos projetos"><div><span>Projetos</span><strong id="count-all">0</strong></div><div><span>Em andamento</span><strong id="count-active">0</strong></div><div><span>Concluídos</span><strong id="count-done">0</strong></div></section>
+    <div class="workspace">
+      <aside><div class="section-heading"><h2>Seus projetos</h2><span class="small">Mais recentes primeiro</span></div><div id="projects" aria-label="Projetos"></div></aside>
+      <section class="detail" aria-label="Detalhes do projeto">
+        <div id="no-project" class="empty"><span class="empty-symbol">▤</span><h2>O próximo projeto começa aqui</h2><p>Cadastre um pedido de montagem e organize as etapas de execução.</p></div>
+        <div id="project-detail" hidden>
+          <div class="detail-top"><span id="project-status" class="badge"></span><div class="actions"><button id="edit-project" class="subtle">Editar</button><button id="delete-project" class="subtle danger">Excluir</button></div></div>
+          <h2 id="project-title"></h2><p id="project-customer" class="muted"></p><p id="project-description" class="description"></p>
+          <div class="progress-label"><strong>Progresso da montagem</strong><span id="progress-text"></span></div><progress id="progress" max="100" value="0"></progress>
+          <div class="task-heading"><h3>Etapas de execução</h3><button id="new-task" class="secondary">+ Nova tarefa</button></div>
+          <label class="filter">Mostrar <select id="status-filter"><option value="">Todas as tarefas</option><option value="pending">Pendentes</option><option value="in_progress">Em andamento</option><option value="done">Concluídas</option></select></label>
+          <div id="tasks"></div>
+        </div>
+      </section>
+    </div>
+    <footer>MVP acadêmico · Desenvolvimento assistido por IA <span>Python + FastAPI</span></footer>
+  </main>
+  <dialog id="project-dialog" aria-labelledby="project-form-title"><form id="project-form">
+    <div class="dialog-heading"><h2 id="project-form-title">Novo projeto</h2><button type="button" class="subtle" data-close="project-dialog" aria-label="Fechar">✕</button></div>
+    <label>Nome do projeto<input name="title" maxlength="120" required placeholder="Ex.: Montagem de painel de controle"></label>
+    <label>Cliente<input name="customer" maxlength="120" required placeholder="Nome do cliente"></label>
+    <label>Referência do pedido <small>opcional</small><input name="order_reference" maxlength="80" placeholder="Ex.: PED-001"></label>
+    <label>Descrição <small>opcional</small><textarea name="description" maxlength="2000" rows="3" placeholder="Descreva o que será montado"></textarea></label>
+    <p class="form-error" role="alert"></p><div class="dialog-actions"><button type="button" class="subtle" data-close="project-dialog">Cancelar</button><button type="submit">Salvar projeto</button></div>
+  </form></dialog>
+  <dialog id="task-dialog" aria-labelledby="task-form-title"><form id="task-form">
+    <div class="dialog-heading"><h2 id="task-form-title">Nova tarefa</h2><button type="button" class="subtle" data-close="task-dialog" aria-label="Fechar">✕</button></div>
+    <label>Nome da tarefa<input name="title" maxlength="120" required placeholder="Ex.: Conferir componentes"></label>
+    <label>Descrição <small>opcional</small><textarea name="description" maxlength="2000" rows="3" placeholder="Instruções para esta etapa"></textarea></label>
+    <p class="form-error" role="alert"></p><div class="dialog-actions"><button type="button" class="subtle" data-close="task-dialog">Cancelar</button><button type="submit">Salvar tarefa</button></div>
+  </form></dialog>
+</body>
+</html>
