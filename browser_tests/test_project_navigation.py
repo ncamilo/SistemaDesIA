@@ -2,6 +2,18 @@ import pytest
 from playwright.sync_api import expect
 
 
+@pytest.mark.parametrize("body", ["Internal Server Error", "<html>Erro</html>"])
+def test_non_json_server_error_has_friendly_message(page, live_url, body):
+    page.route(
+        "**/api/projects",
+        lambda route: route.fulfill(status=500, content_type="text/plain", body=body),
+    )
+    page.goto(live_url)
+    expect(page.locator("#message")).to_have_text(
+        "Não foi possível concluir a operação. Tente novamente."
+    )
+
+
 def create_project(page, url, title, task):
     response = page.request.post(
         f"{url}/api/projects", data={"title": title, "customer": "Cliente fictício"}
