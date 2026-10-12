@@ -107,7 +107,7 @@ a suíte continua funcional. Uma atualização futura do adaptador de testes pod
 - `app/static/`: interface HTML, CSS e JavaScript sem framework.
 - `tests/`: testes unitários e de integração.
 
-Veja [requisitos e arquitetura](docs/requisitos.md), [análise da apostila](docs/analise-apostila.md),
+Veja [escopo do MVP](docs/escopo-mvp.md), [requisitos e arquitetura](docs/requisitos.md), [análise da apostila](docs/analise-apostila.md),
 [fluxo de contribuição](CONTRIBUTING.md) e [uso da IA](docs/uso-ia.md).
 
 Tecnologias: Python 3.14, FastAPI, Pydantic, SQLAlchemy, SQLite, Uvicorn, pytest, HTTPX e Ruff.
