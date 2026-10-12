@@ -127,7 +127,11 @@ As versões resolvidas, incluindo dependências transitivas, estão em `requirem
 MVP destinado a uso local, sem autenticação nem autorização. Não o exponha diretamente à internet.
 Não inclui estoque, anexos, responsáveis, prazos, notificações, faturamento ou controle de usuários.
 Listagens ainda não têm paginação. O schema é criado na inicialização; mudanças futuras precisam de migrações.
-Não há integração de IA em tempo de execução. Não há implantação em serviço de hospedagem.
+O MVP adota o **Modo 1: IA como copiloto de desenvolvimento**. O **Modo 2**, com
+IA durante a execução sugerindo prioridades e fallback local por regras quando
+não houver chave de API, permanece como evolução futura. Nenhum desses mecanismos
+de sugestão está implementado. Veja os [modos de uso da IA](docs/uso-ia.md).
+Não há implantação em serviço de hospedagem.
 
 Versão estável do MVP local: **v1.0.0**. Veja o [backlog](docs/backlog.md) e as
 [notas de versão](CHANGELOG.md). A publicação técnica não substitui a revisão

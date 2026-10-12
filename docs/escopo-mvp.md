@@ -64,8 +64,10 @@ não representam uma auditoria completa de acessibilidade.
 - Responsáveis, prazos, dependências entre tarefas e notificações.
 - Estoque, compras, orçamento, faturamento e emissão fiscal.
 - Anexos, integração com equipamentos e execução automática de montagens.
-- IA integrada à aplicação em tempo de execução; a IA auxilia o desenvolvimento.
-- Priorização assistida: adiada por decisão do aluno para manter o MVP sem custos de serviços de IA.
+- Modo 2: IA integrada à aplicação em tempo de execução. O MVP adota o Modo 1,
+  com IA como copiloto de desenvolvimento, conforme o material fornecido.
+- Priorização assistida e fallback local por regras sem chave de API: previstos
+  como evolução futura, sem implementação ou custos de serviços de IA no MVP.
 - Hospedagem pública, alta disponibilidade, backup automático e metas de desempenho.
 - Paginação e migrações de banco, previstas somente para evolução posterior.
 

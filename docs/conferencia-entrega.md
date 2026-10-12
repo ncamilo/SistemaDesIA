@@ -17,7 +17,7 @@ O aluno confirmou que esse material contém todas as exigências aplicáveis.
 | Testes executáveis e passando | 44 testes unitários/API e quatro de navegador; CI aprovado na versão publicada | Atendido |
 | Qualidade: tipagem, modularidade e consistência | Anotações públicas, validação Pydantic e Ruff lint/format no CI | Atendido |
 | Healthcheck, CRUD e validação de payload | Testes incluindo startup com banco indisponível, erros HTTP e persistência | Atendido |
-| Priorização assistida | Documentada no backlog como evolução futura; dispensa de implementação confirmada pelo aluno | Atendido como planejamento futuro |
+| Modos de uso de IA e priorização assistida | Modo 1 adotado: IA como copiloto de desenvolvimento, conforme material fornecido. Modo 2 e fallback local por regras previstos no backlog, sem implementação atual | Modo 1 atendido; Modo 2 como evolução futura |
 | Release/tag | v1.0.0 publicada, notas de release e CHANGELOG | Atendido |
 | Aceite final e persistência ao reiniciar | Confirmação explícita do aluno em 12/10/2026; teste de persistência já existente | Confirmado |
 | Registro dos prompts | `docs/prompts-utilizados.md`, revisado pelo aluno no formato da apostila; referências no README e no registro de uso de IA | Documentado |
