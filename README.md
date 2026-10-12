@@ -102,6 +102,8 @@ a suíte continua funcional. Uma atualização futura do adaptador de testes pod
 
 ## Arquitetura e documentos
 
+Diagrama Mermaid e responsabilidades: [arquitetura de componentes](docs/arquitetura-componentes.md).
+
 - `app/api.py`: rotas HTTP e injeção de sessão.
 - `app/schemas.py`: contratos e validação de dados.
 - `app/services.py`: regras de negócio e cálculo de progresso.
