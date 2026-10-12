@@ -1,9 +1,12 @@
 from collections.abc import Sequence
+from typing import TypeVar
 
 from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
 from app.models import Project, Task
+
+Entity = TypeVar("Entity", Project, Task)
 
 
 class Repository:
@@ -27,7 +30,7 @@ class Repository:
             query = query.where(Task.status == status)
         return self.session.scalars(query).all()
 
-    def save[T: (Project, Task)](self, entity: T) -> T:
+    def save(self, entity: Entity) -> Entity:
         self.session.add(entity)
         self.session.commit()
         self.session.refresh(entity)

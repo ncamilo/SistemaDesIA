@@ -7,7 +7,7 @@ $projectPython = Join-Path $PSScriptRoot '..\.venv\Scripts\python.exe'
 if (Test-Path -LiteralPath $projectPython) {
     & $projectPython (Join-Path $PSScriptRoot 'dev.py') $Command
 } elseif (Get-Command py -ErrorAction SilentlyContinue) {
-    & py -3.14 (Join-Path $PSScriptRoot 'dev.py') $Command
+    & py -3.11 (Join-Path $PSScriptRoot 'dev.py') $Command
 } else {
     & python (Join-Path $PSScriptRoot 'dev.py') $Command
 }
