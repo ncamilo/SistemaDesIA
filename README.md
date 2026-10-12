@@ -80,6 +80,20 @@ filtros, reabertura, exclusão protegida e persistência após recriar a aplica�
 Cada teste de API usa seu próprio banco temporário. Os testes não alteram o banco de uso.
 GitHub Actions executa os mesmos comandos em pushes e pull requests.
 
+Há também quatro testes de interação em navegador real, em `browser_tests/`, cobrindo
+clique no projeto já selecionado em desktop e celular, seleção pelo teclado, troca de
+projeto, limpeza do filtro e mudança automática do status conforme a execução das tarefas.
+Eles usam um servidor e banco temporários próprios.
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-browser.txt
+.\.venv\Scripts\python.exe -m playwright install chromium
+.\.venv\Scripts\python.exe -m pytest browser_tests -q
+```
+
+Para usar o Edge instalado no Windows, defina `$env:PLAYWRIGHT_CHANNEL = 'msedge'`
+e dispense o comando de instalação do Chromium. O CI executa esses testes em Chromium.
+
 A versão instalada do Starlette emite aviso de depreciação ao utilizar TestClient com HTTPX;
 a suíte continua funcional. Uma atualização futura do adaptador de testes poderá remover o aviso.
 
