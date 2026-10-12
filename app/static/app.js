@@ -37,7 +37,7 @@ function errorMessage(error) {
 async function refresh() {
   const version = ++refreshVersion;
   const loaded = await api("/projects");
-  if (version !== refreshVersion) return;
+  if (version !== refreshVersion) return false;
   projects = loaded;
   if (!projects.some(p => p.id === selectedId)) selectedId = projects[0]?.id ?? null;
   $("count-all").textContent = projects.length;
@@ -47,19 +47,30 @@ async function refresh() {
   for (const project of projects) {
     const card = node("button", undefined, `project-card${project.id === selectedId ? " selected" : ""}`);
     card.setAttribute("aria-pressed", String(project.id === selectedId));
+    card.setAttribute("aria-controls", "project-detail");
     card.append(node("span", labels[project.status], `badge ${project.status}`));
     card.append(node("strong", project.title), node("span", project.customer, "client"));
     const progress = node("div", undefined, "card-progress");
     progress.append(node("span", `${project.completed_tasks}/${project.total_tasks} tarefas`), node("span", `${project.progress}%`));
-    card.append(progress);
-    card.onclick = () => { selectedId = project.id; $("status-filter").value = ""; refresh().catch(errorMessage); };
+    card.append(progress, node("span", "Abrir tarefas →", "open-tasks"));
+    card.onclick = async () => {
+      selectedId = project.id;
+      $("status-filter").value = "";
+      try {
+        const updated = await refresh();
+        if (updated && selectedId === project.id) {
+          $("project-title").focus({preventScroll: true});
+          $("project-title").scrollIntoView({block: "start"});
+        }
+      } catch (error) { errorMessage(error); }
+    };
     $("projects").append(card);
   }
   if (!projects.length) $("projects").append(node("p", "Nenhum projeto cadastrado.", "empty-list"));
   const project = projects.find(p => p.id === selectedId);
   $("no-project").hidden = !!project;
   $("project-detail").hidden = !project;
-  if (!project) return;
+  if (!project) return false;
   $("project-title").textContent = project.title;
   $("project-customer").textContent = `${project.customer}${project.order_reference ? ` · Pedido ${project.order_reference}` : ""}`;
   $("project-description").textContent = project.description;
@@ -70,10 +81,11 @@ async function refresh() {
   $("progress-text").textContent = `${project.completed_tasks} de ${project.total_tasks} tarefas · ${project.progress}%`;
   const status = $("status-filter").value;
   const tasks = await api(`/projects/${project.id}/tasks${status ? `?status=${status}` : ""}`);
-  if (version !== refreshVersion) return;
+  if (version !== refreshVersion) return false;
   $("tasks").replaceChildren();
   if (!tasks.length) $("tasks").append(node("p", status ? "Nenhuma tarefa neste status." : "Adicione a primeira etapa desta montagem.", "empty-list"));
   for (const task of tasks) renderTask(task);
+  return true;
 }
 
 async function mutation(button, operation) {

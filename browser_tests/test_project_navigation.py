@@ -40,3 +40,18 @@ def test_switch_project_shows_only_its_tasks_and_clears_filter(page, live_url):
     expect(page.locator("#project-title")).to_be_focused()
     expect(page.locator("#status-filter")).to_have_value("")
     expect(page.locator(".task-title")).to_have_text("Tarefa A")
+
+
+def test_project_status_follows_task_execution(page, live_url):
+    create_project(page, live_url, "Projeto de montagem", "Montar painel")
+    page.goto(live_url)
+    expect(page.locator(".status-help")).to_contain_text("Status automático")
+    expect(page.locator("#project-status")).to_have_text("Pendente")
+    task_status = page.get_by_label("Status de Montar painel", exact=True)
+    task_status.select_option("in_progress")
+    expect(page.locator("#project-status")).to_have_text("Em andamento")
+    task_status.select_option("done")
+    expect(page.locator("#project-status")).to_have_text("Concluído")
+    expect(page.locator("#progress")).to_have_attribute("value", "100")
+    task_status.select_option("pending")
+    expect(page.locator("#project-status")).to_have_text("Pendente")

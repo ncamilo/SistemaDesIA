@@ -19,7 +19,8 @@
         <div id="no-project" class="empty"><span class="empty-symbol">▤</span><h2>O próximo projeto começa aqui</h2><p>Cadastre um pedido de montagem e organize as etapas de execução.</p></div>
         <div id="project-detail" hidden>
           <div class="detail-top"><span id="project-status" class="badge"></span><div class="actions"><button id="edit-project" class="subtle">Editar</button><button id="delete-project" class="subtle danger">Excluir</button></div></div>
-          <h2 id="project-title"></h2><p id="project-customer" class="muted"></p><p id="project-description" class="description"></p>
+          <p class="status-help">Status automático: altere o status das tarefas para atualizar o projeto. Todas pendentes: Pendente; alguma iniciada ou concluída: Em andamento; todas concluídas: Concluído.</p>
+          <h2 id="project-title" tabindex="-1"></h2><p id="project-customer" class="muted"></p><p id="project-description" class="description"></p>
           <div class="progress-label"><strong>Progresso da montagem</strong><span id="progress-text"></span></div><progress id="progress" max="100" value="0"></progress>
           <div class="task-heading"><h3>Etapas de execução</h3><button id="new-task" class="secondary">+ Nova tarefa</button></div>
           <label class="filter">Mostrar <select id="status-filter"><option value="">Todas as tarefas</option><option value="pending">Pendentes</option><option value="in_progress">Em andamento</option><option value="done">Concluídas</option></select></label>
