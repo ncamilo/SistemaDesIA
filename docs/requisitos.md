@@ -20,6 +20,7 @@ O progresso e o status do projeto são calculados a partir das tarefas, sem esta
 | RF06 | Calcular progresso | Sem tarefas: pendente e 0%; todas concluídas: concluído e 100%; avanço parcial: em andamento |
 | RF07 | Persistir dados | Projetos e tarefas permanecem após reiniciar a aplicação |
 | RF08 | Usar pela interface web | Criar projeto e tarefa, alterar status e visualizar progresso sem usar comandos HTTP |
+| RF09 | Abrir tarefas pelo cartão do projeto | Clique ou Enter leva foco e rolagem aos detalhes, inclusive se já selecionado; troca de projeto limpa filtro e mostra somente suas tarefas |
 
 Tarefas podem ser reabertas e o progresso é recalculado. Um projeto com tarefas todas pendentes
 fica pendente. Qualquer tarefa iniciada ou concluída coloca o projeto em andamento, salvo quando
