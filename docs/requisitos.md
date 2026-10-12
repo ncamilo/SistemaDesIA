@@ -32,6 +32,8 @@ A IA é utilizada no processo de desenvolvimento.
 
 ## Arquitetura
 
+Veja também o [diagrama detalhado de componentes](arquitetura-componentes.md).
+
 ```mermaid
 flowchart LR
     UI[Página HTML/CSS/JS] --> API[Rotas FastAPI e validação Pydantic]
