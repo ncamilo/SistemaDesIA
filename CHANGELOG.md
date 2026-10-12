@@ -1,5 +1,18 @@
 # Histórico de versões
 
+## v1.0.1 — 12/10/2026
+
+- Listagens passam pelo serviço antes do repositório.
+- Falhas SQLAlchemy durante operações retornam 503 em JSON, sem expor SQL ou dados.
+- Interface tolera respostas de erro sem JSON.
+- 52 testes: 46 unitários/API e seis de navegador, incluindo novas regressões.
+- Scripts Windows/macOS para instalar, executar, testar, formatar e demonstrar.
+- CI de instalação e testes em Windows, macOS e Linux.
+- README final, roteiro de demonstração, arquitetura e prompts incluídos no snapshot.
+- SQLite preservado; sem migração de esquema. Manter o arquivo montagem.db ao atualizar.
+- Permanecem uso local sem autenticação, IA apenas no desenvolvimento e aviso do TestClient.
+
+
 ## v1.0.0 — 12/10/2026
 
 Primeira versão estável do MVP local de projetos e tarefas de montagem.

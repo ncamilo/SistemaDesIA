@@ -1,6 +1,6 @@
 # Backlog do MVP
 
-Atualizado em 12/10/2026. Versão de referência: **v1.0.0**.
+Atualizado em 12/10/2026. Versão de referência: **v1.0.1**.
 Este arquivo acompanha execução e pendências; [escopo](escopo-mvp.md) e
 [requisitos](requisitos.md) definem os comportamentos aceitos.
 
@@ -23,7 +23,7 @@ desta versão, por decisão do aluno de evitar custos de serviços de IA.
 
 - [x] Arquitetura em rotas, schemas, serviços e repositório.
 - [x] Tipagem explícita de funções públicas, lint e formatação com Ruff.
-- [x] 44 testes unitários/API e quatro testes de navegador.
+- [x] 46 testes unitários/API e seis testes de navegador.
 - [x] Contrato HTTP, erros documentados e OpenAPI/Swagger UI.
 - [x] Healthcheck independente do banco, inclusive com falha de acesso no startup.
 - [x] CI com testes de API e navegador; correção do achado de revisão do PR #4.
@@ -35,7 +35,7 @@ Evidências: [PR #1](https://github.com/ncamilo/SistemaDesIA/pull/1),
 [PR #4](https://github.com/ncamilo/SistemaDesIA/pull/4).
 Os testes não equivalem a uma auditoria completa de segurança ou acessibilidade.
 
-## Release — v1.0.0
+## Release — v1.0.1
 
 Esta entrega marca a versão estável do **MVP local**, com código identificado pela
 tag e notas de alterações no GitHub. Não representa hospedagem pública da aplicação
@@ -45,7 +45,7 @@ Critérios de publicação: testes e lint aprovados, PR integrado à `main`, tag
 integrado e notas de release com limitações explícitas.
 
 Artefatos: [notas de versão](../CHANGELOG.md) e
-[release v1.0.0](https://github.com/ncamilo/SistemaDesIA/releases/tag/v1.0.0).
+[release v1.0.1](https://github.com/ncamilo/SistemaDesIA/releases/tag/v1.0.1).
 
 ## Concluído — conferência de entrega
 
@@ -59,6 +59,15 @@ Artefatos: [notas de versão](../CHANGELOG.md) e
 Não há pendências de implementação identificadas no material fornecido, consideradas
 as confirmações do aluno. Resta encaminhar os links de entrega pelo canal do curso.
 A avaliação e a nota cabem aos professores.
+
+## Concluído — empacotamento da Unidade V
+
+- [x] Listagens com fluxo Controller → Service → Repository.
+- [x] Tratamento de falhas de banco durante operação e erros sem JSON na interface.
+- [x] Testes de regressão e scripts para Windows/macOS.
+- [x] README com participação da IA, lições aprendidas e exemplos curl.
+- [x] Roteiro de demonstração com SQLite separado dos dados reais.
+- [x] Código e documentação reunidos na versão v1.0.1.
 
 ## Evoluções futuras — sem compromisso nesta release
 

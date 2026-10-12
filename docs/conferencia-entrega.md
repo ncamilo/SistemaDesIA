@@ -1,4 +1,4 @@
-# Conferência de entrega — v1.0.0
+# Conferência de entrega — v1.0.1
 
 Data: 12/10/2026. Referência: 12 capturas da apostila fornecida, em especial
 a seção 2.3.4 (capturas 104750 e 104802), e as imagens posteriores de qualidade/testabilidade.
@@ -14,11 +14,11 @@ O aluno confirmou que esse material contém todas as exigências aplicáveis.
 | Git, .gitignore e histórico incremental | Commits de planejamento, funcionalidades, testes, correções e release; PRs #1–#5 integrados | Atendido |
 | Repositório público | https://github.com/ncamilo/SistemaDesIA | Atendido |
 | README detalhado | Descrição, instalação, execução, exemplos, tecnologias, assistente/modelo, limitações, próximos passos, créditos e licença | Atendido |
-| Testes executáveis e passando | 44 testes unitários/API e quatro de navegador; CI aprovado na versão publicada | Atendido |
+| Testes executáveis e passando | 46 testes unitários/API e seis de navegador; CI aprovado na versão publicada | Atendido |
 | Qualidade: tipagem, modularidade e consistência | Anotações públicas, validação Pydantic e Ruff lint/format no CI | Atendido |
 | Healthcheck, CRUD e validação de payload | Testes incluindo startup com banco indisponível, erros HTTP e persistência | Atendido |
 | Modos de uso de IA e priorização assistida | Modo 1 adotado: IA como copiloto de desenvolvimento, conforme material fornecido. Modo 2 e fallback local por regras previstos no backlog, sem implementação atual | Modo 1 atendido; Modo 2 como evolução futura |
-| Release/tag | v1.0.0 publicada, notas de release e CHANGELOG | Atendido |
+| Release/tag | v1.0.1 publicada, notas de release e CHANGELOG | Atendido |
 | Aceite final e persistência ao reiniciar | Confirmação explícita do aluno em 12/10/2026; teste de persistência já existente | Confirmado |
 | Registro dos prompts | `docs/prompts-utilizados.md`, revisado pelo aluno no formato da apostila; referências no README e no registro de uso de IA | Documentado |
 
@@ -29,28 +29,25 @@ consideradas as confirmações do aluno. Não foi identificada funcionalidade ob
 pendente. Resta a submissão pelo canal do curso; avaliação e nota são decisões dos professores.
 
 Core, qualidade e release são etapas rastreáveis, não três tags exigidas pelo material.
-As tags publicadas são `v0.1.0` e `v1.0.0`. Não foram criadas marcações retroativas
+As tags publicadas são `v0.1.0` e `v1.0.1`. Não foram criadas marcações retroativas
 para simular etapas de desenvolvimento.
 
 ## Links para avaliação
 
 - [Código e README](https://github.com/ncamilo/SistemaDesIA)
-- [Release v1.0.0](https://github.com/ncamilo/SistemaDesIA/releases/tag/v1.0.0)
+- [Release v1.0.1](https://github.com/ncamilo/SistemaDesIA/releases/tag/v1.0.1)
 - [Histórico](https://github.com/ncamilo/SistemaDesIA/commits/main/)
 - [Pull requests integrados](https://github.com/ncamilo/SistemaDesIA/pulls?q=is%3Apr+is%3Amerged)
 - [Testes no GitHub Actions](https://github.com/ncamilo/SistemaDesIA/actions)
 
-Este registro de aceite é posterior à publicação da release. Não altera o código
-da v1.0.0, sua tag, o banco local ou as notas históricas da versão.
+## Conferência da Unidade V
 
-## Documentação complementar da entrega
+- Scripts Windows e macOS incluídos, com instalação e testes em ambiente limpo no CI.
+- README inclui objetivo, instalação, uso, exemplos, limites, participação da IA e lições aprendidas.
+- Roteiro em [demonstracao.md](demonstracao.md), com dados fictícios e banco separado.
+- A release v1.0.1 reúne código e documentação, incluindo arquitetura e prompts revisados pelo aluno.
+- A validação local passou com 46 testes unitários/API e seis de navegador.
+- A revisão de segurança deve considerar o uso local sem autenticação; não representa certificação de segurança.
 
-A branch `main` reúne a documentação complementar de arquitetura e prompts,
-posterior à release funcional `v1.0.0`. Para avaliação, usar o repositório na
-`main` junto ao link da release; o ZIP da tag original não inclui esses documentos
-adicionados posteriormente. A redação dos prompts foi preservada conforme a
-revisão do aluno.
-
-Na última verificação local, os 44 testes unitários/API e os quatro testes de
-navegador passaram; lint e formatação também passaram. O aviso de depreciação
-do TestClient permanece registrado como melhoria futura.
+O aceite do aluno registrado em 12/10/2026 refere-se ao MVP. As correções posteriores
+preservam o escopo e o esquema SQLite. O aviso do TestClient permanece como evolução futura.

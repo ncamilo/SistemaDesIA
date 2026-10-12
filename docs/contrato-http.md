@@ -9,7 +9,14 @@ Todas as operações `/api/*` podem retornar 503 com `{"detail":"Banco de dados 
 quando a criação do esquema falha durante a inicialização. Nesse modo, `/health`,
 `/docs` e a interface continuam acessíveis. Corrija o acesso ao arquivo SQLite e
 reinicie o servidor para tentar inicializar novamente. Não há recuperação automática
-nem monitoramento contínuo do banco; esse 503 cobre a falha detectada no startup.
+nem monitoramento contínuo do banco. Falhas SQLAlchemy durante operações também
+retornam 503 com a mesma mensagem genérica, sem expor SQL ou dados. A sessão da
+requisição é encerrada e alterações não confirmadas são revertidas. Falhas
+transitórias não bloqueiam definitivamente as próximas requisições.
+
+A interface tolera respostas de erro sem JSON (por exemplo, 500 em texto),
+exibindo uma mensagem amigável. Outros erros inesperados podem retornar 500;
+não são classificados como erros de negócio nem como indisponibilidade do banco.
 
 ## Operações
 
