@@ -5,6 +5,22 @@
 Codex, modelo GPT-6, utilizado como assistente de desenvolvimento em 12/10/2026.
 A aplicação não chama modelos de IA nem exige chaves de API.
 
+## Modo adotado no MVP
+
+O MVP adota o **Modo 1 — IA como copiloto de desenvolvimento**, recomendado
+para a base no material fornecido. A IA auxilia planejamento, implementação,
+testes, revisão e documentação; as decisões são revisadas pelo aluno.
+
+O **Modo 2 — IA durante a execução para sugerir prioridades** permanece como
+evolução futura. Também está previsto, sem implementação nesta versão, um
+fallback local para quando não houver chave de API. Esse fallback poderá usar
+regras determinísticas, sem chamadas externas ou custos de serviços de IA;
+não deve ser apresentado como inferência de um modelo.
+
+Antes dessa evolução, definir critérios de prioridade, formato da sugestão e
+justificativa, confirmação pelo usuário e testes dos modos remoto e local.
+O MVP atual não sugere nem atribui prioridades automaticamente.
+
 ## Etapas
 
 As solicitações e decisões do aluno estão organizadas em

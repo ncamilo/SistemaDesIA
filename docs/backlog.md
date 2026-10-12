@@ -64,7 +64,7 @@ A avaliação e a nota cabem aos professores.
 
 | Item | Observação |
 | --- | --- |
-| Priorização assistida | Adiada. Sem modelo, chave, endpoint ou chamadas pagas. Definir regras/fornecedor e critérios antes de implementar. |
+| Priorização assistida — Modo 2 | Futura. Definir sugestão com justificativa e confirmação do usuário; planejar IA durante a execução e fallback local por regras sem chave de API. Testar os dois modos antes da entrega da funcionalidade. Sem modelo, endpoint ou chamadas pagas no MVP atual, que adota o Modo 1 de IA como copiloto de desenvolvimento. |
 | Remover aviso de depreciação do TestClient/HTTPX | Suíte passa; avaliar atualização compatível do adaptador de testes. |
 | Autenticação e autorização | Necessárias antes de considerar acesso compartilhado em rede. |
 | Responsáveis, prazos e dependências entre tarefas | Exigem ampliar requisitos de negócio. |
